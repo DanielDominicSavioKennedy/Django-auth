@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import SignupForm, LoginForm
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
@@ -46,15 +47,15 @@ def login_view(request):
             msg = 'error validating form'
     return render(request, 'login.html', {'form': form, 'msg': msg})
 
-
+@login_required(login_url="/login")
 def admin(request):
     return render(request,'admin.html')
 
-
+@login_required(login_url="/login")
 def customer(request):
     return render(request,'customer.html')
 
-
+@login_required(login_url="/login")
 def employee(request):
     return render(request,'employee.html')
 

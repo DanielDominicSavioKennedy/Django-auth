@@ -9,4 +9,5 @@ urlpatterns = [
     path('customer/', views.customer, name='customer'),
     path('employee/', views.employee, name='employee'),
     path('logout/',views.logout_view,name='logout'),
+    path('adminpage/password_change', include('django.contrib.auth.urls'),name='password_change'),
 ]
