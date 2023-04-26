@@ -25,7 +25,7 @@ def register(request):
 
 
 def login_view(request):
-    form = LoginForm(request.POST or None)
+    form = LoginForm(request.POST or None)  
     msg = None
     if request.method == 'POST':
         if form.is_valid():
